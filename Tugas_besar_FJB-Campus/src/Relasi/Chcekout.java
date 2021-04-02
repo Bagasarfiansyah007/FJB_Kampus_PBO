@@ -28,6 +28,12 @@ public class Chcekout extends User{
         
         System.out.println("Jumlah Order: ");
         jumlah = input.nextInt();
+        
+        System.out.println("Tanggal Order: ");
+        tanggal = input.nextLine();
+        
+        System.out.println("Total harga: ");
+        total = input.nextInt();
     }
     public void delete_order(){
         
