@@ -1,7 +1,6 @@
 package Entitas;
 import java.util.Scanner;
 
-
 public class Pembeli extends User{
     private int saldo;
     private int jumlah_barang;
@@ -30,11 +29,8 @@ public class Pembeli extends User{
         super.setProdi(prodi);
         
         System.out.print("Saldo mahasiswa    : ");
-        saldo = input.nextInt();
-        
-        
-    }
-    
+        saldo = input.nextInt();  
+    }  
     public int getSaldo () {
         return saldo;
     }
