@@ -26,14 +26,14 @@ public class User {
         this.prodi = prodi;
     }
     
+    public String getNama() {
+        return Nama;
+    }    
+    
     public int getNim () {
         return nim;
     }
-    
-    public String getNama() {
-        return Nama;
-    }
-    
+
     public String getfakultas () {
         return fakultas;
     }
@@ -53,5 +53,4 @@ public class User {
     public String getPassword(){
         return Password;
     }
-    
 }
