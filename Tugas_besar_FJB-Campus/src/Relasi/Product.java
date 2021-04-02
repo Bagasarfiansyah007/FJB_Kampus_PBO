@@ -4,66 +4,88 @@
  * and open the template in the editor.
  */
 package Relasi;
-import java.util.Scanner;
 import Entitas.Penjual;
-/**
- *
- * @author AMS
- */
-public class Product {
+import java.util.Scanner;
+
+public class Product extends Penjual{
+
+    public int indeks = 0;
     private String id_produk;
-    private String nama_produk;
-    private String author;
-    private int harga;
+    private String nama_product;
+    private int Harga;
     private String kategori;
-    private int beratBarang;
-    Scanner input = new Scanner(System.in);
     
-    public void setId(String id){
-        System.out.println("ID Produk: ");
-        id = input.nextLine();
-        id_produk = id;
+    public void setProduct (Penjual cari){
+        super.setNim(cari.getNim());
+        super.setNama(cari.getNama());
+        super.setFakultas(cari.getfakultas());
+        super.setProdi(cari.getProdi());
+        
+        System.out.println("NIM Mahasiswa      : " + cari.getNim());
+        System.out.println("Nama Mahasiswa     : " + cari.getNama());
+        System.out.println("Fakultas Mahasiswa : " + cari.getfakultas());
+        System.out.println("Prodi Mahasiswa    : " + cari.getProdi());
+        
+        Scanner input = new Scanner(System.in);
+        
+        id_produk = "PRD0" + (indeks) ;
+        System.out.print  ("Id Product         : " + id_produk);
+         
+        
+        System.out.print  ("Nama Product       : ");
+        nama_product = input.nextLine();
+        
+        Harga = input.nextInt();
+        
+        System.out.print  ("Harga Product      : ");
+        Harga = input.nextInt();
+        
+        System.out.println("");
+        
+        System.out.println("Kategori Product");
+        System.out.println("----------------------");
+        System.out.println("1.Elektronik");
+        System.out.println("2.Fashion");
+        System.out.println("3.Sport");
+        System.out.println("4.Lainnya");
+        
+        System.out.print  ("pilih 1/2/3/4       : ");
+        kategori = input.nextLine();
+        if (kategori == "1") {
+            kategori = "Elektronik";
+        } else if (kategori == "2") {
+            kategori = "Fashion";
+        } else if (kategori == "3") {
+            kategori = "Sport";
+        } else if (kategori == "4") {
+            kategori = "Lainnya";
+        }
+        
+        indeks = indeks + 1;
+        
     }
-    public void setNamaProduk(String nama){
-        System.out.println("Nama Produk: ");
-        nama = input.nextLine();
-        nama_produk = nama;
-    }
-    public void setHarga(int price){
-        System.out.println("Harga Produk: ");
-        price = input.nextInt();
-        harga = price;
-    }
-    public void setKategori(String category){
-        System.out.println("Kategori  : ");
-        category = input.nextLine();
-        kategori = category;
-    }
-    public void setBerat(int berat){
-        System.out.println("Berat Produk: ");
-        berat = input.nextInt();
-        beratBarang = berat;
-    }
-    public String getId(){
+    
+    public String getIdproduk(){
         return id_produk;
     }
-    public String getNamaProduk(){
-        return nama_produk;
+    
+    public String getNama(){
+        return nama_product;
     }
+    
     public int getHarga(){
-        return harga;
+        return Harga;
     }
+    
     public String getKategori(){
         return kategori;
     }
-    public int getBerat(){
-        return beratBarang;
-    }
+    
     public void info(){
-        System.out.println("ID Produk: " + getId());
-        System.out.println("Nama Produk: " + getNamaProduk());
-        System.out.println("Harga Produk: " + getHarga());
-        System.out.println("Kategori Produk: " + getKategori());
-        System.out.println("Berat Produk: " + getBerat());
+        System.out.println(" ");
+        System.out.println("Id Product       : " + getIdproduk());
+        System.out.println("Nama Prdouct     : " + getNama());
+        System.out.println("Harga Product    : " + getHarga());
+        System.out.println("Kategori Product : " + getKategori());
     }
 }
