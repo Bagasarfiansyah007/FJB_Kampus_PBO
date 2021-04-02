@@ -1,5 +1,7 @@
 package tugas_besar_fjb.campus;
 import Entitas.Pembeli;
+import Entitas.Penjual;
+import Relasi.Product;
 import java.util.Scanner;
 
 public class Tugas_besar_FJBCampus {
