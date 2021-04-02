@@ -7,6 +7,8 @@ public class User {
     private String Nama;
     private String fakultas;
     private String prodi;
+    private String username;
+    private String Password;
     
     public void setNim(int nim){
         this.nim = nim;
@@ -38,6 +40,18 @@ public class User {
     
     public String getProdi () {
         return prodi;
+    }
+    public void setUsername(String username){
+        this.username = username;
+    }
+    public void setPassword(String Password){
+        this.Password = Password;
+    }
+    public String getUsername(){
+        return username;
+    }
+    public String getPassword(){
+        return Password;
     }
     
 }
