@@ -1,8 +1,5 @@
-
 package Entitas;
-
 import java.util.Scanner;
-
 
 public class Penjual extends User {
     private int Produk_terjual;
@@ -52,7 +49,5 @@ public class Penjual extends User {
         System.out.println("Nama Mahasiswa     : " + super.getNama());
         System.out.println("Fakultas Mahasiswa : " + super.getfakultas());
         System.out.println("Prodi Mahasiswa    : " + super.getProdi());
-    }
-    
-    
+    }   
 }
