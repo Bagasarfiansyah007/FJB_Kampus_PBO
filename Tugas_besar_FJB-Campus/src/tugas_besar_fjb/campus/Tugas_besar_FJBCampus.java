@@ -8,7 +8,6 @@ import javafx.scene.Node;
 
 public class Tugas_besar_FJBCampus {
 
-     
     public static void main(String[] args) {
         Pembeli[] tablePembeli = new Pembeli[10];
         Penjual[] tablePenjual = new Penjual[10];
@@ -132,7 +131,6 @@ public class Tugas_besar_FJBCampus {
                         } else if (nopilihan == 2) {
 
                         }
-
                         System.out.println("1.Input User");
                         System.out.println("2.Tampil data");
                         System.out.println("0.Keluar");
@@ -179,7 +177,5 @@ public class Tugas_besar_FJBCampus {
         System.out.println("-----------------------------------------------");
         
     } 
-    
-
-    
+ 
 }
