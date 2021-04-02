@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Relasi;
 import Entitas.Penjual;
 import java.util.Scanner;
@@ -64,17 +59,15 @@ public class Product extends Penjual{
         indeks = indeks + 1;
         
     }
-    
+    public int getHarga(){
+        return Harga;
+    }
     public String getIdproduk(){
         return id_produk;
     }
     
     public String getNama(){
         return nama_product;
-    }
-    
-    public int getHarga(){
-        return Harga;
     }
     
     public String getKategori(){
