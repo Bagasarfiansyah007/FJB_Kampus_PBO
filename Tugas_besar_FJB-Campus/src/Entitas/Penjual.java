@@ -1,13 +1,17 @@
 
 package Entitas;
 
+import java.util.Scanner;
 
-public class Penjual {
-    private int produk_terjual;
+
+public class Penjual extends User {
+    private int Produk_terjual;
+    private int saldo_penjualan;
+    private String prodi;
     
-    public void setPenjual(){
+    public void setUser(){
         int nim;
-        String nama,fakultas,prodi;
+        String nama,fakultas,prodi,username,password;
         Scanner input = new Scanner(System.in);
         
         System.out.print("Nama Mahasiswa     : ");
@@ -27,6 +31,14 @@ public class Penjual {
         System.out.print("Prodi Mahasiswa    : ");
         prodi = input.nextLine();
         super.setProdi(prodi);
+        
+        System.out.print("username mahasiswa : ");
+        username = input.nextLine();
+        super.setUsername(username);
+        
+        System.out.print("username mahasiswa : ");
+        password = input.nextLine();
+        super.setPassword(password);
     }
     public void menjual(){
         
@@ -41,4 +53,6 @@ public class Penjual {
         System.out.println("Fakultas Mahasiswa : " + super.getfakultas());
         System.out.println("Prodi Mahasiswa    : " + super.getProdi());
     }
+    
+    
 }
