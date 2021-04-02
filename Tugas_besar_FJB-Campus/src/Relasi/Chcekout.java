@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Relasi;
 
-/**
- *
- * @author AMS
- */
 public class Chcekout extends User{
     private String no_order;
     private int jumlah_order;
