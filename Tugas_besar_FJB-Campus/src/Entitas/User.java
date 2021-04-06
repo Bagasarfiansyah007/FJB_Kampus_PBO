@@ -150,11 +150,10 @@ public class User {
         System.out.println("-----------------------------------------------");
         System.out.println("|    Sukses login sebagai user : " + tableUser[indeks].getNim() + "    |");
         System.out.println("-----------------------------------------------");
-        System.out.println("1.Input pembelian Barang");
-        System.out.println("2.Update pembelian Barang");
+        System.out.println("1.Beli Barang");
+        System.out.println("2.Checkout");
         System.out.println("3.Cari Barang");                    
-        System.out.println("4.Tampil data checkout");
-        System.out.println("5.Hapus data checkout");    
+        System.out.println("4.pembayaran");
         System.out.println("0.Keluar");
         System.out.println(" ");
     }
