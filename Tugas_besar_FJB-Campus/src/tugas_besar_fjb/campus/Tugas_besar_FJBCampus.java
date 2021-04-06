@@ -1,181 +1,184 @@
 package tugas_besar_fjb.campus;
-import Entitas.Pembeli;
+import Entitas.User;
 import Entitas.Penjual;
 import Relasi.Product;
-import java.util.LinkedList;
+import java.io.IOException;
 import java.util.Scanner;
-import javafx.scene.Node;
+
 
 public class Tugas_besar_FJBCampus {
-
+    
     public static void main(String[] args) {
-        Pembeli[] tablePembeli = new Pembeli[10];
-        Penjual[] tablePenjual = new Penjual[10];
+        // variabel global
+        User[] tableUser = new User[10];
         Product[] tableProduct = new Product[10];
-        
         int indeksglobal = 0;
         int nopilihan;
         int indekscari = 0;
         String username,password;
-        boolean kebenaran = false;
+        boolean kebenaran;
         
+        // inisialisasi object
         Scanner input = new Scanner(System.in);
-                
-        System.out.println("-----------------------------------------------");
-        System.out.println("|   Selamat datang di FJB E-COMMERCE campus   |");
-        System.out.println("-----------------------------------------------");
-        System.out.println("                    Login As                   ");
-        System.out.println("-----------------------------------------------");
-        System.out.println("1.User Pembeli");
-        System.out.println("2.User Penjual");
-        System.out.println("3.Admin Aplikasi");
-        System.out.println("4.Registrasi User");
-        System.out.println("0.Keluar");
-        System.out.println("-----------------------------------------------");
+        tableUser[0] = new User();
+        tableProduct[0] = new Product();
+        Penjual penjual = new Penjual();
+        
+        //input data preview
+        tableUser[0].inputdatapreview(tableUser);
+       
+        // tampil menu
+        tableUser[0].tampilMenuUtama();
         System.out.print  ("Masukan Pilihan angka (1/2/3/4) : ");
         nopilihan = input.nextInt();
         
+        // melakukan perulangan ketika nilai nopilihan tidak bernilai 0
         while (nopilihan != 0) {
             
+            // kondisi untuk memilih role user
             if (nopilihan == 1) {
+                
+                // memasukan username dan password user
                 System.out.println("-----------------------------------------------");
                 System.out.println("|            Login Sebagai Pembeli            |");
                 System.out.println("-----------------------------------------------");
                 System.out.println("--   keluar tekan 0 di setiap form input    -- ");
                 System.out.println("-----------------------------------------------");
-                
                 System.out.print("Username : ");
                 username = input.nextLine();
                 username = input.nextLine();
                 System.out.print("Password : ");
                 password = input.nextLine();                
                 
-                while (tablePembeli[indekscari].getUsername().intern() != username && tablePembeli[indekscari].getPassword() != password.intern() && indekscari <= tablePembeli.length){
-                    kebenaran = username.intern() == tablePembeli[indekscari].getUsername().intern() && password.intern() == tablePembeli[indekscari].getPassword().intern();
-                    indekscari++;
-                }
+                // mencari data user
+                kebenaran = false;
+                indekscari = tableUser[0].cariDataUser(tableUser, username, password, indekscari);
+                kebenaran = tableUser[0].cariDataUserbool(tableUser, username, password, kebenaran);
                 
-                kebenaran = username.intern() == tablePembeli[indekscari].getUsername().intern() && password.intern() == tablePembeli[indekscari].getPassword().intern();
-                    
+                // konidisi ketika data ketemu dan mereutrnkan boolean
                 if (kebenaran == true){
-                    System.out.println("-----------------------------------------------");
-                    System.out.println("|            Login Sebagai Pembeli            |");
-                    System.out.println("-----------------------------------------------");
-                    System.out.println("|    Sukses login sebagai user : " + tablePembeli[indekscari].getNim() + "    |");
-                    System.out.println("-----------------------------------------------");
-                    System.out.println("1.Input User");
-                    System.out.println("2.Tampil data");
-                    System.out.println("0.Keluar");
-                    System.out.println(" ");
+                    // menampilkan menu user pembeli
+                    tableUser[0].tampilMenuPembeli(tableUser, indekscari);
                     System.out.print("Masukan Pilihan menu : ");
-
                     nopilihan = input.nextInt();
+                    
+                    // kondisi perulangan ketika tidak menginputkan 0 untuk keluar
                     while (nopilihan != 0) {
+                        // kondisi pilihan fitur menu
                         if (nopilihan == 1) {
                             
                         } else if (nopilihan == 2) {
                             
                         }
-
-                        System.out.println("1.Input User");
-                        System.out.println("2.Tampil data");
-                        System.out.println("0.Keluar");
-                        System.out.println(" ");
+                        
+                        // menampilakan menu user pembeli
+                        tableUser[0].tampilMenuPembeli(tableUser, indekscari);
                         System.out.print("Masukan Pilihan menu : ");
-
                         nopilihan = input.nextInt();
                     }
                     
                 } else {
-                    System.out.println("Akun tidak ditemukan atau username/password salah !");
+                    System.out.println("Akun tidak ditemukan atau username/password salah !");                    
                 }
                
             } else if (nopilihan == 2) {
-                indekscari = 0;
+                // memasukan username dan password user
                 System.out.println("-----------------------------------------------");
                 System.out.println("|            Login Sebagai Penjual            |");
                 System.out.println("-----------------------------------------------");
                 System.out.println("--   keluar tekan 0 di setiap form input    -- ");
                 System.out.println("-----------------------------------------------");
                 System.out.print("Username : ");
-                
                 username = input.nextLine();
                 username = input.nextLine();
                 System.out.print("Password : ");
                 password = input.nextLine();                
                 
-                while (tablePenjual[indekscari].getUsername().intern() != username && tablePenjual[indekscari].getPassword() != password.intern() && indekscari <= tablePenjual.length){
-                    kebenaran = username.intern() == tablePenjual[indekscari].getUsername().intern()  && tablePenjual[indekscari].getPassword() != password.intern();
-                    indekscari++;
-                }
-                kebenaran = username.intern() == tablePenjual[indekscari].getUsername().intern()  && tablePenjual[indekscari].getPassword() != password.intern();
-                    
+                // mencari data user menggunakan perulangan                
+                kebenaran = false;
+                indekscari = tableUser[0].cariDataUser(tableUser, username, password, indekscari);
+                kebenaran = tableUser[0].cariDataUserbool(tableUser, username, password, kebenaran);
+                
+                // konidisi ketika data ketemu dan mereutrnkan boolean
                 if (kebenaran == true){
-                    System.out.println("-----------------------------------------------");
-                    System.out.println("|            Login Sebagai Penjual            |");
-                    System.out.println("-----------------------------------------------");
-                    System.out.println("|    Sukses login sebagai user : " + tablePenjual[indekscari].getNim() + "    |");
-                    System.out.println("-----------------------------------------------");
-                    System.out.println("1.Input User");
-                    System.out.println("2.Tampil data");
-                    System.out.println("0.Keluar");
-                    
-                    System.out.println(" ");
-                    
+                    penjual.tampilanMenuPenjual(tableUser,indekscari);
                     System.out.print("Masukan Pilihan menu : ");
                     nopilihan = input.nextInt();
                     
+                    // kondisi perulangan ketika tidak menginputkan 0 untuk keluar
                     while (nopilihan != 0) {
+                        // kondisi pilihan fitur menu
                         if (nopilihan == 1) {
-
+                            tableProduct[0].inputDataProductJual(tableProduct, indeksglobal, tableUser, indekscari);
                         } else if (nopilihan == 2) {
 
                         }
-                        System.out.println("1.Input User");
-                        System.out.println("2.Tampil data");
-                        System.out.println("0.Keluar");
-                        System.out.println(" ");
+                        // menampilakan menu user pembeli
+                        penjual.tampilanMenuPenjual(tableUser,indekscari);
                         System.out.print("Masukan Pilihan menu : ");
-
                         nopilihan = input.nextInt();
                     }
                     
                 } else {
                     System.out.println("Akun tidak ditemukan atau username/password salah !");
-                }            
+                }       
+                
+                
             } else if (nopilihan == 3) {
-            
+                // memasukan username dan password admin
+                System.out.println("-----------------------------------------------");
+                System.out.println("|            Login Sebagai Admin               |");
+                System.out.println("-----------------------------------------------");
+                System.out.println("--   keluar tekan 0 di setiap form input    -- ");
+                System.out.println("-----------------------------------------------");
+                System.out.print("Username : ");
+                username = input.nextLine();
+                username = input.nextLine();
+                System.out.print("Password : ");
+                password = input.nextLine();
+                
+                // konidisi ketika data ketemu
+                if (username.intern() == "admin" && password.intern() == "12345"){
+                    // kondisi perulangan ketika tidak menginputkan 0 untuk keluar
+                    System.out.print("Masukan Pilihan menu : ");
+                    nopilihan = input.nextInt();
+                    while (nopilihan != 0) {
+                        // kondisi pilihan fitur menu
+                        if (nopilihan == 1) {
+                            tableUser[0].inputDataUser(tableUser, indeksglobal);
+                            tableUser[0].infoarray(tableUser);
+                        } else if (nopilihan == 2) {
+                            
+                        }
+                    }
+                    
+                } else {
+                    System.out.println("Akun tidak ditemukan atau username/password salah !");
+                }  
+                
             } else if (nopilihan == 4) {
+                // Menampilkan titel header registrasi menu
                 System.out.println("-----------------------------------------------");
                 System.out.println("|               Registrasi Akun               |");
                 System.out.println("-----------------------------------------------");
                 System.out.println("--   keluar tekan 0 di salah satu input     -- ");
                 System.out.println("-----------------------------------------------");
-                tablePembeli[indeksglobal] = new Pembeli();
-                tablePembeli[indeksglobal].setUser();
-                indeksglobal = indeksglobal + 1;
+                tableUser[0].inputDataUser(tableUser, indeksglobal);
+                System.out.println(" ");
             }
-
             
-            System.out.println("-----------------------------------------------");
-            System.out.println("|   Selamat datang di FJB E-COMMERCE campus   |");
-            System.out.println("-----------------------------------------------");
-            System.out.println("                    Login As                   ");
-            System.out.println("-----------------------------------------------");
-            System.out.println("1.User Pembeli");
-            System.out.println("2.User Penjual");
-            System.out.println("3.Admin Aplikasi");
-            System.out.println("0.Keluar");
-            System.out.println("-----------------------------------------------");
-            System.out.print  ("Masukan Pilihan angka (1/2/3) : ");
+            // menampilkan menu utama
+            tableUser[0].tampilMenuUtama();
+            System.out.print  ("Masukan Pilihan angka (1/2/3/4) : ");
             nopilihan = input.nextInt();
             
+            
+            
         }
-        
+        // pesan keluar aplikasi
         System.out.println("-----------------------------------------------");
         System.out.println("              Anda Keluar Aplikasi             ");
         System.out.println("-----------------------------------------------");
         
-    } 
- 
+    }  
 }
