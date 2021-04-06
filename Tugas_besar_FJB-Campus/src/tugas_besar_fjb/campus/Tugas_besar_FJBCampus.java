@@ -58,6 +58,7 @@ public class Tugas_besar_FJBCampus {
                 // konidisi ketika data ketemu dan mereutrnkan boolean
                 if (kebenaran == true){
                     // menampilkan menu user pembeli
+                    tableProduct[0].inputdatapreview(tableProduct);
                     tableUser[0].tampilMenuPembeli(tableUser, indekscari);
                     System.out.print("Masukan Pilihan menu : ");
                     nopilihan = input.nextInt();
@@ -66,7 +67,7 @@ public class Tugas_besar_FJBCampus {
                     while (nopilihan != 0) {
                         // kondisi pilihan fitur menu
                         if (nopilihan == 1) {
-                            
+                            tableProduct[0].info(tableProduct);
                         } else if (nopilihan == 2) {
                             
                         }
