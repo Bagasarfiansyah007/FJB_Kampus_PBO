@@ -1,84 +1,99 @@
+
 package Relasi;
 import Entitas.Penjual;
+import Entitas.User;
 import java.util.Scanner;
 
 public class Product extends Penjual{
-
-    public int indeks = 0;
-    private String id_produk;
-    private String nama_product;
-    private int Harga;
+    private String id_barang;
+    private String nama;
     private String kategori;
+    private int Harga;
+    private int indeksglobal = 0;
+    public int i = 0 ;
     
-    public void setProduct (Penjual cari){
-        super.setNim(cari.getNim());
-        super.setNama(cari.getNama());
-        super.setFakultas(cari.getfakultas());
-        super.setProdi(cari.getProdi());
-        
-        System.out.println("NIM Mahasiswa      : " + cari.getNim());
-        System.out.println("Nama Mahasiswa     : " + cari.getNama());
-        System.out.println("Fakultas Mahasiswa : " + cari.getfakultas());
-        System.out.println("Prodi Mahasiswa    : " + cari.getProdi());
-        
+    User L = new Penjual();
+    Penjual Le = (Penjual) L;
+    
+    
+    public void setBarang(User[] data,int indeks){
         Scanner input = new Scanner(System.in);
         
-        id_produk = "PRD0" + (indeks) ;
-        System.out.print  ("Id Product         : " + id_produk);
-         
+        System.out.println("-----------------------------------------------");
+        System.out.println("|            Input Product Jualan             |");
+        System.out.println("-----------------------------------------------");
         
-        System.out.print  ("Nama Product       : ");
-        nama_product = input.nextLine();
+        id_barang = "PRD0";
+        System.out.print("ID Barang               : ");
+        System.out.println(id_barang);
         
-        Harga = input.nextInt();
+        Le.setNim(data[indeks].getNim());
+        System.out.print("nim mahasiswa           : ");
+        System.out.println(Le.getNim());
         
-        System.out.print  ("Harga Product      : ");
-        Harga = input.nextInt();
+        Le.setNama(data[indeks].getNama());
+        System.out.print("Nama mahasiswa          : ");
+        System.out.println(Le.getNama());
         
-        System.out.println("");
+        Le.setFakultas(data[indeks].getfakultas());
+        System.out.print("Fakultas mahasiswa      : ");
+        System.out.println(Le.getfakultas());
         
-        System.out.println("Kategori Product");
-        System.out.println("----------------------");
-        System.out.println("1.Elektronik");
-        System.out.println("2.Fashion");
-        System.out.println("3.Sport");
-        System.out.println("4.Lainnya");
+        Le.setNo(data[indeks].getNo());
+        System.out.print("Telphone mahasiswa      : ");
+        System.out.println(Le.getNo());
         
-        System.out.print  ("pilih 1/2/3/4       : ");
-        kategori = input.nextLine();
-        if (kategori == "1") {
+        System.out.print("nama Barang             : ");
+        nama = input.nextLine();
+        
+        System.out.println("-----------------------");
+        System.out.println("|   kategori Barang   |");
+        System.out.println("-----------------------");
+        System.out.println("| 1.Elektronik        |");
+        System.out.println("| 2.Fashion           |");
+        System.out.println("| 3.Kecantikan        |");
+        System.out.println("| 4.Makanan           |");
+        System.out.println("-----------------------");
+        System.out.print("Masukan Pilihan(1/2/3/4) : ");
+        int nopilihan = input.nextInt();
+        
+        if(nopilihan == 1) {
             kategori = "Elektronik";
-        } else if (kategori == "2") {
+        } else if (nopilihan == 2) {
             kategori = "Fashion";
-        } else if (kategori == "3") {
-            kategori = "Sport";
-        } else if (kategori == "4") {
-            kategori = "Lainnya";
+        } else if (nopilihan == 3) {
+            kategori = "Kecantikan";
+        } else if (nopilihan == 4) {
+            kategori = "Makanan";
+        } else {
+            System.out.println("-------------------------------------------");
+            System.out.println("|      Input Yang anda masukan Salah      |");
+            System.out.println("-------------------------------------------");
         }
         
-        indeks = indeks + 1;
+        System.out.print("Harga Barang             : ");
+        Harga = input.nextInt();
         
-    }
-    public int getHarga(){
-        return Harga;
-    }
-    public String getIdproduk(){
-        return id_produk;
-    }
-    
-    public String getNama(){
-        return nama_product;
+        System.out.println("-------------------------------------------");
+        System.out.println("|      Input Penjualan Barang Sukses      |");
+        System.out.println("-------------------------------------------");
+       
+        
+        i++;
     }
     
-    public String getKategori(){
-        return kategori;
+    public void inputDataProductJual(Product[] tableProduct,int indeksglobal,User[] tableUser,int indekscari){
+        indeksglobal = tableProduct[0].getValue(tableProduct);
+        tableProduct[indeksglobal] = new Product();
+        tableProduct[indeksglobal-1].setBarang(tableUser, indekscari);
     }
     
-    public void info(){
-        System.out.println(" ");
-        System.out.println("Id Product       : " + getIdproduk());
-        System.out.println("Nama Prdouct     : " + getNama());
-        System.out.println("Harga Product    : " + getHarga());
-        System.out.println("Kategori Product : " + getKategori());
+    public int getValue(Product[] total){
+        int banyak = 0;
+        while (total[banyak] != null && banyak <= total.length) {
+            banyak = banyak + 1;
+        }
+        
+        return banyak;
     }
 }
