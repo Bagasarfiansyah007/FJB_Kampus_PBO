@@ -10,13 +10,13 @@ public class Chcekout extends Product{
     
     
     
-    public void add_order(Product[] produk,int indeksglobal){
-        no = indeksglobal;
+    public void add_order(Product[] produk,int indeksglobal, int indeksNo){
+        this.no = indeksNo + 1;
         Scanner input = new Scanner(System.in);
         produk[0].info(produk);
         System.out.println(" ");        
         System.out.println("------------ Pilih menu ------------");
-        System.out.println("| 1 | Pilih Katefori               |");
+        System.out.println("| 1 | Pilih Kategori               |");
         System.out.println("| 2 | Cari Barang                  |");
         System.out.println("| 3 | Checkout barang              |");
         System.out.println("| 0 | keluar barang                |");
@@ -47,8 +47,8 @@ public class Chcekout extends Product{
                 while (nopilihan != produk[i].getNopilihan() && produk[i] != null && i < produk[0].getValue(produk)) {
                     i = i + 1;
                 }
-
-                no_order = "ORD0";
+                
+                no_order = "ORD0" + no;
                 System.out.println("No Order     : " + no_order );
 
                 super.setIdBarang(produk[i].getIdbarang());
@@ -62,7 +62,8 @@ public class Chcekout extends Product{
 
                 super.setHarga(produk[i].getHarga());
                 System.out.println("Harga Barang : " + produk[i].getHarga());
-
+                
+                no = no + 1;
             }
             
             System.out.println(" ");        
@@ -75,16 +76,13 @@ public class Chcekout extends Product{
 
             System.out.print("Masukan No pilihan  : ");
             nopilihan = input.nextInt();
-        }
-        
-        
-        
+        }       
     }
     
-    public void inputDataCheckout(Chcekout[] tablecheckout,Product[] tableProduct,int indeksglobal){
+    public void inputDataCheckout(Chcekout[] tablecheckout,Product[] tableProduct,int indeksglobal, int indeksNo){
         indeksglobal = tablecheckout[0].getValue(tablecheckout);
         tablecheckout[indeksglobal] = new Chcekout();
-        tablecheckout[indeksglobal-1].add_order(tableProduct,indeksglobal);
+        tablecheckout[indeksglobal-1].add_order(tableProduct,indeksglobal, indeksNo);
     }
     
     public int getNochcekout() {
@@ -138,7 +136,5 @@ public class Chcekout extends Product{
     
     public int getHarga(){
         return total_harga;
-    }
-    
-    
+    }    
 }
