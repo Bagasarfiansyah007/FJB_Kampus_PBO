@@ -19,7 +19,7 @@ public class Product extends Penjual{
         System.out.println("|            Input Product Jualan             |");
         System.out.println("-----------------------------------------------");
         
-        id_barang = "PRD0";
+        id_barang = "PRD0" + no;
         System.out.print("ID Barang               : ");
         System.out.println(id_barang);
         
