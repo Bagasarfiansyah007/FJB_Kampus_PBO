@@ -10,7 +10,7 @@ public class Product extends Penjual{
     private String kategori;
     public int Harga;
     
-    public void setBarang(User[] data,int indeks,int indeksglobal){
+        public void setBarang(User[] data,int indeks,int indeksglobal){
         Scanner input = new Scanner(System.in);
         
         this.no = indeksglobal + 1;
@@ -19,7 +19,7 @@ public class Product extends Penjual{
         System.out.println("|            Input Product Jualan             |");
         System.out.println("-----------------------------------------------");
         
-        id_barang = "PRD0" + no;
+        id_barang = "PRD0";
         System.out.print("ID Barang               : ");
         System.out.println(id_barang);
         
@@ -75,7 +75,84 @@ public class Product extends Penjual{
         System.out.println("-------------------------------------------");
       
     }
-   
+    
+    public void cariBarang(Product[] produk,String cari){
+        int i = 0;
+        while(cari.intern() != produk[i].getIdbarang() && i < produk[0].getValue(produk)){
+            i = i + 1;
+        }
+    }
+    
+    public void updateBarang(Product[] produk,String cari){
+        Scanner input = new Scanner(System.in);
+        int i = 0;
+        for (int j = 0 ; j < produk[0].getValue(produk) ; j++) {
+           if (cari.intern() == produk[j].getIdbarang()){
+               i = j;
+           }
+        }
+        
+        
+        System.out.println("-----------------------------------------------");
+        System.out.println("|            Update Product Jualan            |");
+        System.out.println("-----------------------------------------------");
+        
+        System.out.print("ID Barang               : ");
+        System.out.println(produk[i].getIdbarang());
+        
+        System.out.print("nim mahasiswa           : ");
+        System.out.println(produk[i].getNim());
+        
+        System.out.print("Nama mahasiswa          : ");
+        System.out.println(produk[i].getNama());
+        
+        System.out.print("Fakultas mahasiswa      : ");
+        System.out.println(produk[i].getfakultas());
+        
+        System.out.print("Telphone mahasiswa      : ");
+        System.out.println(produk[i].getNo());
+        
+        System.out.print("nama Barang             : ");
+        nama = input.nextLine();
+        produk[i].setNamaBarang(nama);
+        
+        System.out.println("-----------------------");
+        System.out.println("|   kategori Barang   |");
+        System.out.println("-----------------------");
+        System.out.println("| 1.Elektronik        |");
+        System.out.println("| 2.Fashion           |");
+        System.out.println("| 3.Kecantikan        |");
+        System.out.println("| 4.Makanan           |");
+        System.out.println("-----------------------");
+        System.out.print("Masukan Pilihan(1/2/3/4) : ");
+        int nopilihan = input.nextInt();
+        
+        if(nopilihan == 1) {
+            kategori = "Elektronik";
+            produk[i].setKategoriBarang(kategori);
+        } else if (nopilihan == 2) {
+            kategori = "Fashion";
+            produk[i].setKategoriBarang(kategori);
+        } else if (nopilihan == 3) {
+            kategori = "Kecantikan";
+            produk[i].setKategoriBarang(kategori);
+        } else if (nopilihan == 4) {
+            kategori = "Makanan";
+            produk[i].setKategoriBarang(kategori);
+        } else {
+            System.out.println("-------------------------------------------");
+            System.out.println("|      Input Yang anda masukan Salah      |");
+            System.out.println("-------------------------------------------");
+        }
+        
+        System.out.print("Harga Barang             : ");
+        Harga = input.nextInt();
+        produk[i].setHarga(Harga);
+        
+        System.out.println("-------------------------------------------");
+        System.out.println("|      Input Penjualan Barang Sukses      |");
+        System.out.println("-------------------------------------------");
+    }
     
     public void setIdBarang(String id_barang){
         this.id_barang = id_barang;
@@ -112,6 +189,18 @@ public class Product extends Penjual{
     public int getHarga() {
         return Harga;
     } 
+    
+    public void tampilProductOption(){
+        System.out.println(" ");        
+        System.out.println("------------ Pilih menu ------------");
+        System.out.println("| 1 | Hapus Data Barang            |");
+        System.out.println("| 2 | Cari Barang                  |");
+        System.out.println("| 3 | Kategori barang              |");
+        System.out.println("| 0 | keluar                       |");
+        System.out.println("------------------------------------");
+        System.out.print("Masukan Pilihan(1/2/3/4) : ");
+    }
+
   
     public void inputDataProductJual(Product[] tableProduct,int indeksglobal,User[] tableUser,int indekscari){
         indeksglobal = tableProduct[0].getValue(tableProduct);
