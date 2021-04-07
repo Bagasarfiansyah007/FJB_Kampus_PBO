@@ -14,7 +14,6 @@ public class Tugas_besar_FJBCampus {
         User[] tableUser = new User[10];
         Product[] tableProduct = new Product[10];
         Chcekout[] tableCheckout = new Chcekout[10];
-        int indeksNo = 0;
         int indeksglobal = 0;
         int nopilihan;
         int indekscari = 0;
@@ -72,7 +71,7 @@ public class Tugas_besar_FJBCampus {
                     while (nopilihan != 0) {
                         // kondisi pilihan fitur menu
                         if (nopilihan == 1) {
-                            tableCheckout[0].inputDataCheckout(tableCheckout,tableProduct,indeksglobal,indeksNo);
+                            tableCheckout[0].inputDataCheckout(tableCheckout,tableProduct,indeksglobal);
                         } else if (nopilihan == 2) {
                             tableCheckout[0].info(tableCheckout, tableUser, indekscari);
                         }
@@ -117,7 +116,25 @@ public class Tugas_besar_FJBCampus {
                         if (nopilihan == 1) {
                             tableProduct[0].inputDataProductJual(tableProduct, indeksglobal, tableUser, indekscari);
                         } else if (nopilihan == 2) {
-
+                            tableProduct[0].info(tableProduct);
+                            System.out.print("Masukan Pilihan menu : ");
+                            String cari = input.nextLine();
+                            cari = input.nextLine();
+                            tableProduct[0].updateBarang(tableProduct, cari);
+                        } else if (nopilihan == 3) {
+                            tableProduct[0].info(tableProduct);
+                            tableProduct[0].tampilProductOption();
+                            nopilihan = input.nextInt();
+                            if (nopilihan == 1) {
+                            
+                            } else if (nopilihan == 2) {
+                                System.out.print("Masukan Nama barang : ");
+                                String cari = input.nextLine();
+                                cari = input.nextLine();
+                                tableProduct[0].infoBerdasarkanPencarian(tableProduct, cari);
+                            } else if (nopilihan == 3) {
+                            
+                            }
                         }
                         // menampilakan menu user pembeli
                         penjual.tampilanMenuPenjual(tableUser,indekscari);
