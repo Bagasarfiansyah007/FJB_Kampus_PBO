@@ -81,10 +81,10 @@ public class Chcekout extends Product{
         
     }
     
-    public void inputDataCheckout(Chcekout[] tablecheckout,Product[] tableProduct,int indeksglobal){
+    public void inputDataCheckout(Chcekout[] tablecheckout,Product[] tableProduct,int indeksglobal, int indeksNo){
         indeksglobal = tablecheckout[0].getValue(tablecheckout);
         tablecheckout[indeksglobal] = new Chcekout();
-        tablecheckout[indeksglobal-1].add_order(tableProduct,indeksglobal);
+        tablecheckout[indeksglobal-1].add_order(tableProduct,indeksglobal,indeksNo);
     }
     
     public int getNochcekout() {
