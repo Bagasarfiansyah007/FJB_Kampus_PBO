@@ -10,16 +10,16 @@ public class Product extends Penjual{
     private String kategori;
     public int Harga;
     
-        public void setBarang(User[] data,int indeks,int indeksglobal){
+    public void setBarang(User[] data,int indeks,int indeksglobal){
         Scanner input = new Scanner(System.in);
-        
         this.no = indeksglobal + 1;
         
         System.out.println("-----------------------------------------------");
         System.out.println("|            Input Product Jualan             |");
         System.out.println("-----------------------------------------------");
         
-        id_barang = "PRD0" + no;
+        
+        id_barang = "PRD0" + no;           
         System.out.print("ID Barang               : ");
         System.out.println(id_barang);
         
@@ -39,7 +39,7 @@ public class Product extends Penjual{
         System.out.print("Telphone mahasiswa      : ");
         System.out.println(super.getNo());
         
-        System.out.print("nama Barang             : ");
+        System.out.print("Nama Barang             : ");
         nama = input.nextLine();
         
         System.out.println("-----------------------");
@@ -75,14 +75,13 @@ public class Product extends Penjual{
         System.out.println("-------------------------------------------");
       
     }
-    
     public void cariBarang(Product[] produk,String cari){
         int i = 0;
         while(cari.intern() != produk[i].getIdbarang() && i < produk[0].getValue(produk)){
             i = i + 1;
         }
     }
-    
+
     public void updateBarang(Product[] produk,String cari){
         Scanner input = new Scanner(System.in);
         int i = 0;
@@ -91,31 +90,31 @@ public class Product extends Penjual{
                i = j;
            }
         }
-        
-        
+
+
         System.out.println("-----------------------------------------------");
         System.out.println("|            Update Product Jualan            |");
         System.out.println("-----------------------------------------------");
-        
+
         System.out.print("ID Barang               : ");
         System.out.println(produk[i].getIdbarang());
-        
+
         System.out.print("nim mahasiswa           : ");
         System.out.println(produk[i].getNim());
-        
+
         System.out.print("Nama mahasiswa          : ");
         System.out.println(produk[i].getNama());
-        
+
         System.out.print("Fakultas mahasiswa      : ");
         System.out.println(produk[i].getfakultas());
-        
+
         System.out.print("Telphone mahasiswa      : ");
         System.out.println(produk[i].getNo());
-        
+
         System.out.print("nama Barang             : ");
         nama = input.nextLine();
         produk[i].setNamaBarang(nama);
-        
+
         System.out.println("-----------------------");
         System.out.println("|   kategori Barang   |");
         System.out.println("-----------------------");
@@ -126,7 +125,7 @@ public class Product extends Penjual{
         System.out.println("-----------------------");
         System.out.print("Masukan Pilihan(1/2/3/4) : ");
         int nopilihan = input.nextInt();
-        
+
         if(nopilihan == 1) {
             kategori = "Elektronik";
             produk[i].setKategoriBarang(kategori);
@@ -144,15 +143,16 @@ public class Product extends Penjual{
             System.out.println("|      Input Yang anda masukan Salah      |");
             System.out.println("-------------------------------------------");
         }
-        
+
         System.out.print("Harga Barang             : ");
         Harga = input.nextInt();
         produk[i].setHarga(Harga);
-        
+
         System.out.println("-------------------------------------------");
         System.out.println("|      Input Penjualan Barang Sukses      |");
         System.out.println("-------------------------------------------");
     }
+   
     
     public void setIdBarang(String id_barang){
         this.id_barang = id_barang;
@@ -188,7 +188,7 @@ public class Product extends Penjual{
     
     public int getHarga() {
         return Harga;
-    } 
+    }
     
     public void tampilProductOption(){
         System.out.println(" ");        
@@ -200,7 +200,6 @@ public class Product extends Penjual{
         System.out.println("------------------------------------");
         System.out.print("Masukan Pilihan(1/2/3/4) : ");
     }
-
   
     public void inputDataProductJual(Product[] tableProduct,int indeksglobal,User[] tableUser,int indekscari){
         indeksglobal = tableProduct[0].getValue(tableProduct);
@@ -241,13 +240,13 @@ public class Product extends Penjual{
         System.out.println("------------------------------------------------------------------------");
         System.out.println("|                           Produk Tersedia                            |");        
         System.out.println("------------------------------------------------------------------------");
-        System.out.println("| Pilih Kategori | 1.Elektronik | 2.Fashion | 3.kecantikan | 4.Makanan |");
+        System.out.println("| Pilih Kategori | 1.Elektronik | 2.Fashion | 3.Kecantikan | 4.Makanan |");
         System.out.println("------------------------------------------------------------------------");
         for (int i = 0; i < tableProduct[0].getValue(tableProduct); i++) {
             if (j == 1 ) {
                 if ("Elektronik" == tableProduct[i].getKategori().intern()) {
                     System.out.println("|                | Id Barang          : " + tableProduct[i].getIdbarang());
-                    System.out.println("|                | nim mahasiswa      : " + tableProduct[i].getNim());
+                    System.out.println("|                | NIM mahasiswa      : " + tableProduct[i].getNim());
                     System.out.println("|                | Nama mahasiswa     : " + tableProduct[i].getNama());
                     System.out.println("|        "+ tableProduct[i].getNopilihan()+"       | Nama Barang        : " + tableProduct[i].getNamaBarang());
                     System.out.println("|                | No Telphone        : " + tableProduct[i].getNo());
@@ -358,4 +357,3 @@ public class Product extends Penjual{
         tableProduct[1].setUserManual(2,1302191000,"Erlangga saputro","FKB","082144412433","Akutansi","PRD02","Iphone 11 pro","Elektronik",2000000);
     }
 }
- 
