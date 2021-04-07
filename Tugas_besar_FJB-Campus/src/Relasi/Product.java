@@ -3,12 +3,7 @@ import Entitas.Penjual;
 import Entitas.User;
 import java.util.Scanner;
 
-public class Product extends Penjual{
-    private int no = 0;
-    private String id_barang;
-    private String nama;
-    private String kategori;
-    public int Harga;
+
     
     public void setBarang(User[] data,int indeks,int indeksglobal){
         Scanner input = new Scanner(System.in);
