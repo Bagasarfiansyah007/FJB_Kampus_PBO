@@ -1,6 +1,7 @@
 package tugas_besar_fjb.campus;
 import Entitas.User;
 import Entitas.Penjual;
+import Relasi.Chcekout;
 import Relasi.Product;
 import java.io.IOException;
 import java.util.Scanner;
@@ -12,6 +13,7 @@ public class Tugas_besar_FJBCampus {
         // variabel global
         User[] tableUser = new User[10];
         Product[] tableProduct = new Product[10];
+        Chcekout[] tableCheckout = new Chcekout[10];
         int indeksglobal = 0;
         int nopilihan;
         int indekscari = 0;
@@ -22,10 +24,12 @@ public class Tugas_besar_FJBCampus {
         Scanner input = new Scanner(System.in);
         tableUser[0] = new User();
         tableProduct[0] = new Product();
+        tableCheckout[0] = new Chcekout();
         Penjual penjual = new Penjual();
         
         //input data preview
         tableUser[0].inputdatapreview(tableUser);
+        tableProduct[0].inputdatapreview(tableProduct);
        
         // tampil menu
         tableUser[0].tampilMenuUtama();
@@ -58,7 +62,7 @@ public class Tugas_besar_FJBCampus {
                 // konidisi ketika data ketemu dan mereutrnkan boolean
                 if (kebenaran == true){
                     // menampilkan menu user pembeli
-                    tableProduct[0].inputdatapreview(tableProduct);
+                    
                     tableUser[0].tampilMenuPembeli(tableUser, indekscari);
                     System.out.print("Masukan Pilihan menu : ");
                     nopilihan = input.nextInt();
@@ -67,9 +71,9 @@ public class Tugas_besar_FJBCampus {
                     while (nopilihan != 0) {
                         // kondisi pilihan fitur menu
                         if (nopilihan == 1) {
-                            tableProduct[0].info(tableProduct);
+                            tableCheckout[0].inputDataCheckout(tableCheckout,tableProduct,indeksglobal);
                         } else if (nopilihan == 2) {
-                            
+                            tableCheckout[0].info(tableCheckout, tableUser, indekscari);
                         }
                         
                         // menampilakan menu user pembeli
