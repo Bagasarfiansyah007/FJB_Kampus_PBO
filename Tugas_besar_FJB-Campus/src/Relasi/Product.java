@@ -1,23 +1,19 @@
-
 package Relasi;
 import Entitas.Penjual;
 import Entitas.User;
 import java.util.Scanner;
 
 public class Product extends Penjual{
+    private int no = 0;
     private String id_barang;
     private String nama;
     private String kategori;
-    private int Harga;
-    private int indeksglobal = 0;
-    public int i = 0 ;
+    public int Harga;
     
-    User L = new Penjual();
-    Penjual Le = (Penjual) L;
-    
-    
-    public void setBarang(User[] data,int indeks){
+    public void setBarang(User[] data,int indeks,int indeksglobal){
         Scanner input = new Scanner(System.in);
+        
+        this.no = indeksglobal + 1;
         
         System.out.println("-----------------------------------------------");
         System.out.println("|            Input Product Jualan             |");
@@ -27,21 +23,21 @@ public class Product extends Penjual{
         System.out.print("ID Barang               : ");
         System.out.println(id_barang);
         
-        Le.setNim(data[indeks].getNim());
+        super.setNim(data[indeks].getNim());
         System.out.print("nim mahasiswa           : ");
-        System.out.println(Le.getNim());
+        System.out.println(super.getNim());
         
-        Le.setNama(data[indeks].getNama());
+        super.setNama(data[indeks].getNama());
         System.out.print("Nama mahasiswa          : ");
-        System.out.println(Le.getNama());
+        System.out.println(super.getNama());
         
-        Le.setFakultas(data[indeks].getfakultas());
+        super.setFakultas(data[indeks].getfakultas());
         System.out.print("Fakultas mahasiswa      : ");
-        System.out.println(Le.getfakultas());
+        System.out.println(super.getfakultas());
         
-        Le.setNo(data[indeks].getNo());
+        super.setNo(data[indeks].getNo());
         System.out.print("Telphone mahasiswa      : ");
-        System.out.println(Le.getNo());
+        System.out.println(super.getNo());
         
         System.out.print("nama Barang             : ");
         nama = input.nextLine();
@@ -77,12 +73,30 @@ public class Product extends Penjual{
         System.out.println("-------------------------------------------");
         System.out.println("|      Input Penjualan Barang Sukses      |");
         System.out.println("-------------------------------------------");
-       
-        
-        i++;
+      
+    }
+   
+    
+    public void setIdBarang(String id_barang){
+        this.id_barang = id_barang;
     }
     
+    public void setNamaBarang(String nama){
+        this.nama = nama;
+    }
     
+    public void setKategoriBarang(String kategori){
+        this.kategori = kategori;
+    }
+    
+    public void setHarga(int Harga) {
+        this.Harga = Harga;
+    }
+    
+    public int getNopilihan(){
+        return no;
+    }
+
     public String getIdbarang() {
         return id_barang;
     }
@@ -102,7 +116,7 @@ public class Product extends Penjual{
     public void inputDataProductJual(Product[] tableProduct,int indeksglobal,User[] tableUser,int indekscari){
         indeksglobal = tableProduct[0].getValue(tableProduct);
         tableProduct[indeksglobal] = new Product();
-        tableProduct[indeksglobal-1].setBarang(tableUser, indekscari);
+        tableProduct[indeksglobal].setBarang(tableUser, indekscari,indeksglobal);
     }
     
     public int getValue(Product[] total){
@@ -124,7 +138,7 @@ public class Product extends Penjual{
             System.out.println("|                | Id Barang          : " + tableProduct[i].getIdbarang());
             System.out.println("|                | nim mahasiswa      : " + tableProduct[i].getNim());
             System.out.println("|                | Nama mahasiswa     : " + tableProduct[i].getNama());
-            System.out.println("|        "+ (i + 1) +"       | Nama Barang        : " + tableProduct[i].getNamaBarang());
+            System.out.println("|        "+ tableProduct[i].getNopilihan()+"       | Nama Barang        : " + tableProduct[i].getNamaBarang());
             System.out.println("|                | No Telphone        : " + tableProduct[i].getNo());
             System.out.println("|                | Kategori Barang    : " + tableProduct[i].getKategori());
             System.out.println("|                | Harga Barang       : " + tableProduct[i].getHarga());
@@ -132,7 +146,110 @@ public class Product extends Penjual{
         }
     }
     
-    public void setUserManual(int nim,String nama,String fakultas,String noTelpon,String prodi,String id,String namabarang,String kategori,int harga){
+    public void infoBerdasarkanKategori(Product[] tableProduct,int j){
+        boolean kebenaran = true;
+        
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println("|                           Produk Tersedia                            |");        
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println("| Pilih Kategori | 1.Elektronik | 2.Fashion | 3.kecantikan | 4.Makanan |");
+        System.out.println("------------------------------------------------------------------------");
+        for (int i = 0; i < tableProduct[0].getValue(tableProduct); i++) {
+            if (j == 1 ) {
+                if ("Elektronik" == tableProduct[i].getKategori().intern()) {
+                    System.out.println("|                | Id Barang          : " + tableProduct[i].getIdbarang());
+                    System.out.println("|                | nim mahasiswa      : " + tableProduct[i].getNim());
+                    System.out.println("|                | Nama mahasiswa     : " + tableProduct[i].getNama());
+                    System.out.println("|        "+ tableProduct[i].getNopilihan()+"       | Nama Barang        : " + tableProduct[i].getNamaBarang());
+                    System.out.println("|                | No Telphone        : " + tableProduct[i].getNo());
+                    System.out.println("|                | Kategori Barang    : " + tableProduct[i].getKategori());
+                    System.out.println("|                | Harga Barang       : " + tableProduct[i].getHarga());
+                    System.out.println("------------------------------------------------------------------------");
+                } else {
+                    kebenaran = false;
+                }
+            } else if (j == 2 ) {
+                if ("Fashion" == tableProduct[i].getKategori().intern()) {
+                    System.out.println("|                | Id Barang          : " + tableProduct[i].getIdbarang());
+                    System.out.println("|                | nim mahasiswa      : " + tableProduct[i].getNim());
+                    System.out.println("|                | Nama mahasiswa     : " + tableProduct[i].getNama());
+                    System.out.println("|        "+ tableProduct[i].getNopilihan()+"       | Nama Barang        : " + tableProduct[i].getNamaBarang());
+                    System.out.println("|                | No Telphone        : " + tableProduct[i].getNo());
+                    System.out.println("|                | Kategori Barang    : " + tableProduct[i].getKategori());
+                    System.out.println("|                | Harga Barang       : " + tableProduct[i].getHarga());
+                    System.out.println("------------------------------------------------------------------------");
+                } else {
+                    kebenaran = false;
+                }
+            } else if (j == 3 ) {
+                if ("kecantikan" == tableProduct[i].getKategori().intern()) {
+                    System.out.println("|                | Id Barang          : " + tableProduct[i].getIdbarang());
+                    System.out.println("|                | nim mahasiswa      : " + tableProduct[i].getNim());
+                    System.out.println("|                | Nama mahasiswa     : " + tableProduct[i].getNama());
+                    System.out.println("|        "+ tableProduct[i].getNopilihan()+"       | Nama Barang        : " + tableProduct[i].getNamaBarang());
+                    System.out.println("|                | No Telphone        : " + tableProduct[i].getNo());
+                    System.out.println("|                | Kategori Barang    : " + tableProduct[i].getKategori());
+                    System.out.println("|                | Harga Barang       : " + tableProduct[i].getHarga());
+                    System.out.println("------------------------------------------------------------------------");
+                } else {
+                    kebenaran = false;
+                }
+            } else if (j == 4 ) {
+                if ("Makanan" == tableProduct[i].getKategori().intern()) {
+                    System.out.println("|                | Id Barang          : " + tableProduct[i].getIdbarang());
+                    System.out.println("|                | nim mahasiswa      : " + tableProduct[i].getNim());
+                    System.out.println("|                | Nama mahasiswa     : " + tableProduct[i].getNama());
+                    System.out.println("|        "+ tableProduct[i].getNopilihan()+"       | Nama Barang        : " + tableProduct[i].getNamaBarang());
+                    System.out.println("|                | No Telphone        : " + tableProduct[i].getNo());
+                    System.out.println("|                | Kategori Barang    : " + tableProduct[i].getKategori());
+                    System.out.println("|                | Harga Barang       : " + tableProduct[i].getHarga());
+                    System.out.println("------------------------------------------------------------------------");
+                } else {
+                    kebenaran = false;
+                }
+            }
+            
+        }
+        if (kebenaran == false) {
+            System.out.println("-----------------------------------------------");
+            System.out.println("|            Kategori tidak ditemukan         |");
+            System.out.println("-----------------------------------------------");
+        }
+        
+    }
+    
+    public void infoBerdasarkanPencarian(Product[] tableProduct,String cari){
+        boolean kebenaran = true;
+        
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println("|                           Produk Tersedia                            |");        
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println("| Pilih Kategori | 1.Elektronik | 2.Fashion | 3.kecantikan | 4.Makanan |");
+        System.out.println("------------------------------------------------------------------------");
+        for (int i = 0; i < tableProduct[0].getValue(tableProduct); i++) {
+            if (cari.intern() == tableProduct[i].getNamaBarang().intern() ) {
+                System.out.println("|                | Id Barang          : " + tableProduct[i].getIdbarang());
+                System.out.println("|                | nim mahasiswa      : " + tableProduct[i].getNim());
+                System.out.println("|                | Nama mahasiswa     : " + tableProduct[i].getNama());
+                System.out.println("|        "+ tableProduct[i].getNopilihan()+"       | Nama Barang        : " + tableProduct[i].getNamaBarang());
+                System.out.println("|                | No Telphone        : " + tableProduct[i].getNo());
+                System.out.println("|                | Kategori Barang    : " + tableProduct[i].getKategori());
+                System.out.println("|                | Harga Barang       : " + tableProduct[i].getHarga());
+                System.out.println("------------------------------------------------------------------------");
+            } else {
+                kebenaran = false;
+            } 
+        }
+        if (kebenaran == false) {
+            System.out.println("-----------------------------------------------");
+            System.out.println("|            Data tidak ditemukan             |");
+            System.out.println("-----------------------------------------------");
+        }
+        
+    }
+    
+    public void setUserManual(int no,int nim,String nama,String fakultas,String noTelpon,String prodi,String id,String namabarang,String kategori,int harga){
+        this.no = no;
         super.setNim(nim);
         super.setNama(nama);
         super.setFakultas(fakultas);
@@ -148,8 +265,8 @@ public class Product extends Penjual{
         for (int i = 1 ; i < 2 ; i ++) {
             tableProduct[i] = new Product();
         }
-        tableProduct[0].setUserManual(1302194007,"Bagas Arfiansyah","FIF","089119231492","RPL","PRD01","Tote Bag","Fashion",10000);
-        tableProduct[1].setUserManual(1302191000,"Erlangga saputro","FKB","082144412433","Akutansi","PRD02","Iphone 11 pro","Elektronik",2000000);
+        tableProduct[0].setUserManual(1,1302194007,"Bagas Arfiansyah","FIF","089119231492","RPL","PRD01","Tote Bag","Fashion",10000);
+        tableProduct[1].setUserManual(2,1302191000,"Erlangga saputro","FKB","082144412433","Akutansi","PRD02","Iphone 11 pro","Elektronik",2000000);
     }
 }
  
