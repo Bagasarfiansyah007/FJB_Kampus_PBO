@@ -62,7 +62,8 @@ public class Chcekout extends Product{
 
                 super.setHarga(produk[i].getHarga());
                 System.out.println("Harga Barang : " + produk[i].getHarga());
-
+                
+                no = no + 1;
             }
             
             System.out.println(" ");        
