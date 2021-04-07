@@ -72,7 +72,7 @@ public class Tugas_besar_FJBCampus {
                     while (nopilihan != 0) {
                         // kondisi pilihan fitur menu
                         if (nopilihan == 1) {
-                            tableCheckout[0].inputDataCheckout(tableCheckout,tableProduct,indeksglobal,ndeksNo);
+                            tableCheckout[0].inputDataCheckout(tableCheckout,tableProduct,indeksglobal,indeksNo);
                         } else if (nopilihan == 2) {
                             tableCheckout[0].info(tableCheckout, tableUser, indekscari);
                         }
