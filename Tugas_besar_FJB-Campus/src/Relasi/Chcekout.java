@@ -10,8 +10,8 @@ public class Chcekout extends Product{
     
     
     
-    public void add_order(Product[] produk,int indeksglobal, int indeksNo){
-        this.no = indeksNo + 1;
+    public void add_order(Product[] produk,int indeksglobal){
+        no = indeksglobal;
         Scanner input = new Scanner(System.in);
         produk[0].info(produk);
         System.out.println(" ");        
@@ -48,7 +48,7 @@ public class Chcekout extends Product{
                     i = i + 1;
                 }
 
-                no_order = "ORD0" + no;
+                no_order = "ORD0";
                 System.out.println("No Order     : " + no_order );
 
                 super.setIdBarang(produk[i].getIdbarang());
@@ -62,8 +62,7 @@ public class Chcekout extends Product{
 
                 super.setHarga(produk[i].getHarga());
                 System.out.println("Harga Barang : " + produk[i].getHarga());
-                
-                no = no + 1;
+
             }
             
             System.out.println(" ");        
@@ -82,10 +81,10 @@ public class Chcekout extends Product{
         
     }
     
-    public void inputDataCheckout(Chcekout[] tablecheckout,Product[] tableProduct,int indeksglobal, int indeksNo){
+    public void inputDataCheckout(Chcekout[] tablecheckout,Product[] tableProduct,int indeksglobal){
         indeksglobal = tablecheckout[0].getValue(tablecheckout);
         tablecheckout[indeksglobal] = new Chcekout();
-        tablecheckout[indeksglobal-1].add_order(tableProduct,indeksglobal,indeksNo);
+        tablecheckout[indeksglobal-1].add_order(tableProduct,indeksglobal);
     }
     
     public int getNochcekout() {
