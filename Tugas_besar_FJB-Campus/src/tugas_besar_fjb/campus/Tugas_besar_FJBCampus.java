@@ -14,6 +14,7 @@ public class Tugas_besar_FJBCampus {
         User[] tableUser = new User[10];
         Product[] tableProduct = new Product[10];
         Chcekout[] tableCheckout = new Chcekout[10];
+        int indeksNo = 0;
         int indeksglobal = 0;
         int nopilihan;
         int indekscari = 0;
@@ -71,7 +72,7 @@ public class Tugas_besar_FJBCampus {
                     while (nopilihan != 0) {
                         // kondisi pilihan fitur menu
                         if (nopilihan == 1) {
-                            tableCheckout[0].inputDataCheckout(tableCheckout,tableProduct,indeksglobal);
+                            tableCheckout[0].inputDataCheckout(tableCheckout,tableProduct,indeksglobal,ndeksNo);
                         } else if (nopilihan == 2) {
                             tableCheckout[0].info(tableCheckout, tableUser, indekscari);
                         }
