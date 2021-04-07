@@ -10,8 +10,8 @@ public class Chcekout extends Product{
     
     
     
-    public void add_order(Product[] produk,int indeksglobal){
-        no = indeksglobal;
+    public void add_order(Product[] produk,int indeksglobal, int indeksNo){
+        this.no = indeksNo + 1;
         Scanner input = new Scanner(System.in);
         produk[0].info(produk);
         System.out.println(" ");        
@@ -48,7 +48,7 @@ public class Chcekout extends Product{
                     i = i + 1;
                 }
 
-                no_order = "ORD0";
+                no_order = "ORD0" + no;
                 System.out.println("No Order     : " + no_order );
 
                 super.setIdBarang(produk[i].getIdbarang());
