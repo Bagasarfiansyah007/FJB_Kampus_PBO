@@ -12,6 +12,7 @@ public class User {
     private String prodi;
     private String username;
     private String Password;
+    private int saldo;
     
     public void setUser() {
         Scanner input = new Scanner(System.in);
@@ -39,6 +40,9 @@ public class User {
         System.out.print("password mahasiswa : ");
         Password = input.nextLine();
         
+        System.out.print("Saldo E-Wallet     : ");
+        saldo = input.nextInt();
+        
     }
     
     public void setUserManual(int nim,String nama,String fakultas,String noTelpon,String prodi,String username,String Password){
@@ -53,6 +57,10 @@ public class User {
     
     public void setNim(int nim){
         this.nim = nim;
+    }
+    
+    public void setSaldo(int saldo){
+        this.saldo = saldo;
     }
     
     public void setNama(String nama){
@@ -71,8 +79,20 @@ public class User {
         this.prodi = prodi;
     }
     
+    public void setUsername(String username){
+        this.username = username;
+    }
+    
+    public void setPassword(String password){
+        this.Password = password;
+    }
+    
     public int getNim () {
         return nim;
+    }
+    
+    public int getSaldo(){
+        return saldo;
     }
     
     public String getNama() {
@@ -138,24 +158,48 @@ public class User {
         System.out.println("-----------------------------------------------");
         System.out.println("1.User Pembeli");
         System.out.println("2.User Penjual");
-        System.out.println("3.Admin Aplikasi");
-        System.out.println("4.Registrasi User");
+        System.out.println("3.Registrasi User");
         System.out.println("0.Keluar");
         System.out.println("-----------------------------------------------");
     }
     
-    public void tampilMenuPembeli(User[] tableUser,int indeks){
+    public void updateUser(User[] user,int i){
+        Scanner input = new Scanner(System.in);
+        
         System.out.println("-----------------------------------------------");
-        System.out.println("|            Login Sebagai Pembeli            |");
+        System.out.println("|             Update Account User             |");
         System.out.println("-----------------------------------------------");
-        System.out.println("|    Sukses login sebagai user : " + tableUser[indeks].getNim() + "    |");
-        System.out.println("-----------------------------------------------");
-        System.out.println("1.Beli Barang");
-        System.out.println("2.Checkout");
-        System.out.println("3.Cari Barang");                    
-        System.out.println("4.pembayaran");
-        System.out.println("0.Keluar");
-        System.out.println(" ");
+        
+        System.out.print("nim mahasiswa      : ");
+        System.out.println(user[i].getNim());
+        
+        System.out.print("nama mahasiswa     : ");
+        nama = input.nextLine();
+        user[i].setNama(nama);
+        
+        System.out.print("fakultas mahasiswa : ");
+        fakultas = input.nextLine();
+        user[i].setFakultas(fakultas);
+        
+        System.out.print("Telpon mahasiswa   : ");
+        noTelpon = input.nextLine();
+        user[i].setNo(noTelpon);
+        
+        System.out.print("prodi mahasiswa    : ");
+        prodi = input.nextLine();
+        user[i].setProdi(prodi);
+        
+        System.out.print("username mahasiswa : ");
+        username = input.nextLine();
+        user[i].setUsername(username);
+        
+        System.out.print("password mahasiswa : ");
+        Password = input.nextLine();
+        user[i].setPassword(Password);
+        
+        System.out.println("-------------------------------------------");
+        System.out.println("|     Update Penjualan Barang Sukses      |");
+        System.out.println("-------------------------------------------");
     }
     
     public int cariDataUser(User[] tableUser,String x,String y,int indekscari){
@@ -182,5 +226,7 @@ public class User {
         System.out.println("Nama mahasiswa     : " + getNama());
         System.out.println("Fakultas mahasiswa : " + getfakultas());
         System.out.println("Prodi mahasiswa    : " + getProdi());
+        System.out.println("No telephon        : " + getNo());
+        System.out.println("Saldo E-wallet     : " + getSaldo());        
     }
 }
