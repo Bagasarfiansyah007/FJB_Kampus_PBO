@@ -281,6 +281,33 @@ public class Product extends Penjual{
         
     }
     
+    public void infoPenjual(Product[] tableProduct,int cari){
+        if (tableProduct[0].getIdbarang() == null) {
+            System.out.println("----------------------------------");
+            System.out.println("|        Data Tidak Ada !        |");
+            System.out.println("----------------------------------");
+        } else {
+            System.out.println("------------------------------------------------------------------------");
+            System.out.println("|                           Produk Tersedia                            |");        
+            System.out.println("------------------------------------------------------------------------");
+            System.out.println("| Pilih Kategori | 1.Elektronik | 2.Fashion | 3.kecantikan | 4.Makanan |");
+            System.out.println("------------------------------------------------------------------------");
+            for (int i = 0; i < tableProduct[0].getValue(tableProduct); i++) {
+                if (cari == tableProduct[i].getNim()) {
+                    System.out.println("|                | Id Barang          : " + tableProduct[i].getIdbarang());
+                    System.out.println("|                | nim mahasiswa      : " + tableProduct[i].getNim());
+                    System.out.println("|                | Nama mahasiswa     : " + tableProduct[i].getNama());
+                    System.out.println("|        "+ i +"       | Nama Barang        : " + tableProduct[i].getNamaBarang());
+                    System.out.println("|                | No Telphone        : " + tableProduct[i].getNo());
+                    System.out.println("|                | Kategori Barang    : " + tableProduct[i].getKategori());
+                    System.out.println("|                | Harga Barang       : " + tableProduct[i].getHarga());
+                    System.out.println("------------------------------------------------------------------------");
+                }
+            }
+        }
+        
+    }
+    
     public void infoBerdasarkanKategori(Product[] tableProduct,int j){
         boolean kebenaran = true;
         
