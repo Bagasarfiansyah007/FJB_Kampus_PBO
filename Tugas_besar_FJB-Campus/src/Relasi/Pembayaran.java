@@ -1,7 +1,9 @@
 
 package Relasi;
 
-public class Pembayaran {
-    String no_pembayaran
-    String no_rekening
+import Entitas.Pembeli;
+
+public class Pembayaran extends Pembeli{
+   private String id_pembayaran;
+   private String status;
 }
