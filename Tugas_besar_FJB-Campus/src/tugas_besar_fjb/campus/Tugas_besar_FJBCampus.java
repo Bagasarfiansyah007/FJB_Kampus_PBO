@@ -76,7 +76,7 @@ public class Tugas_besar_FJBCampus {
                         if (nopilihan == 1) {
                             tableCheckout[0].inputDataCheckout(tableCheckout,tableProduct,indeksglobal, indeksNo);
                         } else if (nopilihan == 2) {
-                            tableCheckout[0].info(tableCheckout, tableUser, indekscari);
+                            tableCheckout[0].infoarray(tableCheckout, tableUser, indekscari);
                             tableCheckout[0].tampilCheckoutOption();
                             nopilihan = input.nextInt();
                             if(nopilihan == 1) {
@@ -84,7 +84,7 @@ public class Tugas_besar_FJBCampus {
                                 String cari = input.nextLine();
                                 cari = input.nextLine();
                                 tableCheckout[0].deleteProduct(tableCheckout, cari);
-                                tableCheckout[0].info(tableCheckout, tableUser, indekscari);
+                                tableCheckout[0].infoarray(tableCheckout, tableUser, indekscari);
                             } else if (nopilihan == 2) {
                             
                             }
@@ -141,7 +141,7 @@ public class Tugas_besar_FJBCampus {
                             cari = input.nextLine();
                             tableProduct[0].updateBarang(tableProduct, cari);
                         } else if (nopilihan == 3) {
-                            tableProduct[0].info(tableProduct);
+                            tableProduct[0].infoPenjual(tableProduct,tableProduct[indekscari].getNim());
                             tableProduct[0].tampilProductOption();
                             nopilihan = input.nextInt();
                             if (nopilihan == 1) {
