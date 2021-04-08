@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 
 public class Pembeli extends User{
-    private int saldo;
     private int barangTerbeli;
     
     public void tampilMenuPembeli(User[] tableUser,int indeks){
@@ -18,5 +17,13 @@ public class Pembeli extends User{
         System.out.println("4.Update account");
         System.out.println("0.Keluar");
         System.out.println(" ");
+    }
+    
+    public void setBarangTerbeli(int barangTerbeli){
+        this.barangTerbeli = barangTerbeli;
+    }
+    
+    public int getBarangTerbeli(){
+        return barangTerbeli;
     }
 }
