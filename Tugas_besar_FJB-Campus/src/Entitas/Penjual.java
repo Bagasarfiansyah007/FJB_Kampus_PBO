@@ -1,5 +1,4 @@
 
-
 package Entitas;
 
 import java.util.Scanner;
