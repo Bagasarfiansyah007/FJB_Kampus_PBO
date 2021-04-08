@@ -145,7 +145,7 @@ public class Chcekout extends Product{
         return total_harga;
     }
     
-    public void info(Chcekout[] chcekout,User[] user,int indeks){
+    public void infoarray(Chcekout[] chcekout,User[] user,int indeks){
         if (chcekout[0] == null){
             System.out.println("----------------------------------");
             System.out.println("|        Data Tidak Ada !        |");
@@ -157,13 +157,17 @@ public class Chcekout extends Product{
         System.out.println("|    Sukses login sebagai user : " + user[indeks].getNim() + "    |");
         System.out.println("------------------------------------------------");
         for (int i = 0; i < chcekout[0].getValue(chcekout) - 1; i++) {
-            System.out.println("|           | No order          : " + chcekout[i].getNoorder());
-            System.out.println("|           | Id barang         : " + chcekout[i].getIdbarang());
-            System.out.println("|    "+ (chcekout[i].getNochcekout()-2)+"      | Nama Barang       : " + chcekout[i].getNamaBarang());
-            System.out.println("|           | Nama Penjual      : " + chcekout[i].getNama());
-            System.out.println("|           | Harga Barang      : " + chcekout[i].getHarga());
-            System.out.println("------------------------------------------------");
+            chcekout[i].info(i);
         }
+    }
+    
+    public void info(int i){
+        System.out.println("|           | No order          : " + getNoorder());
+        System.out.println("|           | Id barang         : " + super.getIdbarang());
+        System.out.println("|    "+ i +"      | Nama Barang       : " + super.getNamaBarang());
+        System.out.println("|           | Nama Penjual      : " + super.getNama());
+        System.out.println("|           | Harga Barang      : " + super.getHarga());
+        System.out.println("------------------------------------------------");        
     }
     
     public int getValue(Chcekout[] total){
