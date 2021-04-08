@@ -11,7 +11,7 @@ public class Chcekout extends Product{
     
     
     public void add_order(Product[] produk,int indeksglobal, int indeksNo){
-        this.no = indeksNo + 1;
+        this.no = indeksglobal + 1;
         Scanner input = new Scanner(System.in);
         produk[0].info(produk);
         System.out.println(" ");        
@@ -48,7 +48,7 @@ public class Chcekout extends Product{
                     i = i + 1;
                 }
                 
-                no_order = "ORD0" + no;
+                no_order = "ORD0" + (no-1);
                 System.out.println("No Order     : " + no_order );
 
                 super.setIdBarang(produk[i].getIdbarang());
@@ -79,6 +79,54 @@ public class Chcekout extends Product{
         }       
     }
     
+    public void deleteProduct(Chcekout[] checkout,String cari){
+        int i = 0;
+        int j = 0;
+        int acuan = 0;
+        boolean kebenaran = false;
+        for (j=0; j < checkout[0].getValue(checkout) -1 ; j++) {
+           if(cari.intern() == checkout[j].getNoorder().intern()){
+               i = j;
+           }
+        }
+        j = 0;
+        if (i == 0 && acuan == 1){
+            checkout[i] = null;
+            System.out.println("----------------------------------");
+            System.out.println("|      Data Behasil Dihapus      |");
+            System.out.println("----------------------------------");
+        } else if(i != 0) {
+            kebenaran = i != j;
+        }
+        
+        if (kebenaran == true) {
+            for (j = i ; j < checkout[0].getValue(checkout) - 1;j++){
+                checkout[j] = checkout[j + 1];
+            }
+            checkout[checkout[0].getValue(checkout)-1] = null;
+            System.out.println("----------------------------------");
+            System.out.println("|      Data Behasil Dihapus      |");
+            System.out.println("----------------------------------");
+            checkout[0].info(checkout);
+        } else {
+            System.out.println("----------------------------------");
+            System.out.println("|     Data Tidak ketemu !        |");
+            System.out.println("----------------------------------");
+        }
+        
+        
+    }
+    
+    public void tampilCheckoutOption(){
+        System.out.println(" ");        
+        System.out.println("------------ Pilih menu ------------");
+        System.out.println("| 1 | Hapus Data Barang            |");
+        System.out.println("| 2 | Bayar                        |");
+        System.out.println("| 0 | keluar                       |");
+        System.out.println("------------------------------------");
+        System.out.print("Masukan Pilihan(1/2) : ");
+    }
+    
     public void inputDataCheckout(Chcekout[] tablecheckout,Product[] tableProduct,int indeksglobal, int indeksNo){
         indeksglobal = tablecheckout[0].getValue(tablecheckout);
         tablecheckout[indeksglobal] = new Chcekout();
@@ -98,6 +146,11 @@ public class Chcekout extends Product{
     }
     
     public void info(Chcekout[] chcekout,User[] user,int indeks){
+        if (chcekout[0] == null){
+            System.out.println("----------------------------------");
+            System.out.println("|        Data Tidak Ada !        |");
+            System.out.println("----------------------------------");
+        }
         System.out.println("------------------------------------------------");
         System.out.println("|               Checkout Product               |");
         System.out.println("------------------------------------------------");
@@ -106,7 +159,7 @@ public class Chcekout extends Product{
         for (int i = 0; i < chcekout[0].getValue(chcekout) - 1; i++) {
             System.out.println("|           | No order          : " + chcekout[i].getNoorder());
             System.out.println("|           | Id barang         : " + chcekout[i].getIdbarang());
-            System.out.println("|    "+ chcekout[i].getNochcekout()+"      | Nama Barang       : " + chcekout[i].getNamaBarang());
+            System.out.println("|    "+ (chcekout[i].getNochcekout()-2)+"      | Nama Barang       : " + chcekout[i].getNamaBarang());
             System.out.println("|           | Nama Penjual      : " + chcekout[i].getNama());
             System.out.println("|           | Harga Barang      : " + chcekout[i].getHarga());
             System.out.println("------------------------------------------------");
