@@ -96,6 +96,7 @@ public class Tugas_besar_FJBCampus {
                         }
                         
                         // menampilakan menu user pembeli
+                        
                         pembeli.tampilMenuPembeli(tableUser, indekscari);
                         System.out.print("Masukan Pilihan menu : ");
                         nopilihan = input.nextInt();
