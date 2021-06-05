@@ -62,7 +62,7 @@ public class Chcekout extends Product{
 
                 super.setHarga(produk[i].getHarga());
                 System.out.println("Harga Barang : " + produk[i].getHarga());
-                
+                                
                 no = no + 1;
             }
             
@@ -141,7 +141,10 @@ public class Chcekout extends Product{
         return no_order;
     }
     
-    public int getTotalharga(){
+    public int getTotalharga(Chcekout[] x){
+        for (int i = 0 ; i < x[0].getValue(x);i++) {
+            total_harga = total_harga + x[i].getHarga();
+        } 
         return total_harga;
     }
     
@@ -164,10 +167,10 @@ public class Chcekout extends Product{
     public void info(int i){
         System.out.println("|           | No order          : " + getNoorder());
         System.out.println("|           | Id barang         : " + super.getIdbarang());
-        System.out.println("|    "+ i +"      | Nama Barang       : " + super.getNamaBarang());
+        System.out.println("|    "+ (i + 1) +"      | Nama Barang       : " + super.getNamaBarang());
         System.out.println("|           | Nama Penjual      : " + super.getNama());
         System.out.println("|           | Harga Barang      : " + super.getHarga());
-        System.out.println("------------------------------------------------");        
+        System.out.println("------------------------------------------------");
     }
     
     public int getValue(Chcekout[] total){
