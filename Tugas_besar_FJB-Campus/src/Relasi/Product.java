@@ -297,7 +297,7 @@ public class Product extends Penjual{
                     System.out.println("|                | Id Barang          : " + tableProduct[i].getIdbarang());
                     System.out.println("|                | nim mahasiswa      : " + tableProduct[i].getNim());
                     System.out.println("|                | Nama mahasiswa     : " + tableProduct[i].getNama());
-                    System.out.println("|        "+ i +"       | Nama Barang        : " + tableProduct[i].getNamaBarang());
+                    System.out.println("|        "+ (i+1) +"       | Nama Barang        : " + tableProduct[i].getNamaBarang());
                     System.out.println("|                | No Telphone        : " + tableProduct[i].getNo());
                     System.out.println("|                | Kategori Barang    : " + tableProduct[i].getKategori());
                     System.out.println("|                | Harga Barang       : " + tableProduct[i].getHarga());
